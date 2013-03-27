@@ -13,6 +13,7 @@ import com.stealthyone.bukkit.groupcodespex.PluginMethods;
 public enum GenericMessage {
 
 	CODE_ALREADY_EXISTS(ChatColor.RED + "Code: " + ChatColor.DARK_RED + "{CODE}" + ChatColor.RED + " already exists!"),
+	CODE_DOESNT_EXIST(ChatColor.RED + "Code: " + ChatColor.DARK_RED + "{CODE}" + ChatColor.RED + " doesn't exist!"),
 	GROUP_DOESNT_EXIST(ChatColor.RED + "Group: " + ChatColor.DARK_RED + "{GROUP}" + ChatColor.RED + " doesn't exist!"),
 	NO_PERMISSION(ChatColor.RED + "You do not have permission to use this command!");
 

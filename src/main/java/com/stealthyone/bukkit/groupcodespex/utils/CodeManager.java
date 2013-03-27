@@ -99,6 +99,16 @@ public final class CodeManager {
 	}
 	
 	/**
+	 * Removes a code
+	 * @param code
+	 */
+	public final void removeCode(String code) {
+		getCodeConfig().set("codes." + code, null);
+		
+		codeFile.saveFile();
+	}
+	
+	/**
 	 * Returns if a code is claimed or not
 	 * @param code
 	 * @return

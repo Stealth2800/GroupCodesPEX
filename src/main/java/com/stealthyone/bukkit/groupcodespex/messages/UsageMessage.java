@@ -7,7 +7,9 @@ public enum UsageMessage {
 
 	GROUPCODES("/groupcodes"),
 	GROUPCODES_ADD("/groupcodes add <group> <code>"),
-	GROUPCODES_REDEEM("/groupcodes redeem <code>");
+	GROUPCODES_ADDRANDOM("/groupcodes add <group> random"),
+	GROUPCODES_REDEEM("/groupcodes redeem <code>"),
+	GROUPCODES_REMOVE("/groupcodes remove <code>");
 	
 	private String usageMessage;
 	
