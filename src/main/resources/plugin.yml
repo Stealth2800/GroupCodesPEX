@@ -1,0 +1,11 @@
+name: GroupCodesPEX
+main: com.stealthyone.bukkit.groupcodespex.BasePlugin
+version: 1.0
+website: http://stealthyone.com/bukkit
+description: Create codes that will promote the user to a specified group
+author: Stealth2800
+commands:
+  groupcodes:
+    description: 'Base plugin command'
+    usage: '/groupcodes'
+    aliases: [gcpex,gc,codes,gcodes,code]
