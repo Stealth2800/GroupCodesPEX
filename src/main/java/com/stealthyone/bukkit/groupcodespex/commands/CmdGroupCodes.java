@@ -1,5 +1,6 @@
 package com.stealthyone.bukkit.groupcodespex.commands;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -9,8 +10,8 @@ import com.stealthyone.bukkit.groupcodespex.commands.subcommands.CmdGroupCodesAd
 import com.stealthyone.bukkit.groupcodespex.commands.subcommands.CmdGroupCodesList;
 import com.stealthyone.bukkit.groupcodespex.commands.subcommands.CmdGroupCodesRedeem;
 import com.stealthyone.bukkit.groupcodespex.commands.subcommands.CmdGroupCodesReload;
+import com.stealthyone.bukkit.groupcodespex.commands.subcommands.CmdGroupCodesRemove;
 import com.stealthyone.bukkit.groupcodespex.commands.subcommands.ISubCmd;
-import com.stealthyone.bukkit.groupcodespex.messages.UsageMessage;
 
 public final class CmdGroupCodes implements CommandExecutor {
 
@@ -23,7 +24,7 @@ public final class CmdGroupCodes implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (args.length == 0) {
-			UsageMessage.GROUPCODES.sendTo(sender);
+			showHelp(sender);
 			return true;
 		} else {
 			if (args[0].equalsIgnoreCase("add")) {
@@ -42,9 +43,22 @@ public final class CmdGroupCodes implements CommandExecutor {
 				ISubCmd command = new CmdGroupCodesReload(plugin);
 				command.run(sender, args);
 				return true;
+			} else if (args[0].equalsIgnoreCase("remove")) {
+				ISubCmd command = new CmdGroupCodesRemove(plugin);
+				command.run(sender, args);
+				return true;
 			}
 		}
-		UsageMessage.GROUPCODES.sendTo(sender);
+		showHelp(sender);
 		return true;
+	}
+	
+	private final void showHelp(CommandSender sender) {
+		sender.sendMessage(ChatColor.GOLD + "----Codes----");
+		sender.sendMessage(ChatColor.YELLOW + "/code redeem <code>" + ChatColor.GOLD + " - Redeems a code");
+		sender.sendMessage(ChatColor.YELLOW + "/code list" + ChatColor.GOLD + " - Lists all codes");
+		sender.sendMessage(ChatColor.YELLOW + "/code add <group> <code>" + ChatColor.GOLD + " - Adds a code");
+		sender.sendMessage(ChatColor.YELLOW + "/code add <group> random" + ChatColor.GOLD + " - Adds a random code for a group");
+		sender.sendMessage(ChatColor.YELLOW + "/code remove <code>" + ChatColor.GOLD + " - Removes a code");
 	}
 }
