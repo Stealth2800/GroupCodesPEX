@@ -32,16 +32,9 @@ public final class CmdGroupCodesRemove implements ISubCmd {
 			return;
 		}
 		
-		String group = args[1];
-		String code = args[2];
+		String code = args[1];
 		if (code.equalsIgnoreCase("random")) {
 			code = codeManager.getRandomCode();
-		}
-		
-		/* Make sure group exists */
-		if (!plugin.getPex().isGroupExists(group)) {
-			GenericMessage.GROUP_DOESNT_EXIST.sendTo(sender, Arrays.asList("{GROUP}|" + group));
-			return;
 		}
 		
 		/* Make sure code exists */
@@ -52,7 +45,7 @@ public final class CmdGroupCodesRemove implements ISubCmd {
 		
 		/* Every precheck is fine, go ahead and delete code */
 		codeManager.removeCode(code);
-		plugin.getMethods().sendTaggedMessage(sender, "You successfully removed the code: " + code + " for group: " + group);
+		plugin.getMethods().sendTaggedMessage(sender, "You successfully removed the code: " + code);
 	}
 
 }
