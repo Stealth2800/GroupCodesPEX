@@ -27,7 +27,7 @@ public final class CmdGroupCodesRemove implements ISubCmd {
 		
 		CodeManager codeManager = plugin.getCodeManager();
 		
-		if (args.length < 3) {
+		if (args.length < 2) {
 			UsageMessage.GROUPCODES_REMOVE.sendTo(sender);
 			return;
 		}
